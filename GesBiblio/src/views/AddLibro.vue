@@ -60,7 +60,8 @@ export default {
             if(this.id) {
                 this.newLibro = await this.getLibro(this.id)
             }
-        }
+        },
+
     },
     mounted() {
         this.getLibroInBD()
@@ -133,8 +134,9 @@ export default {
                     </div>
                     <br>
                     <button type="submit" class="btn btn-default btn-dark">Guardar</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                    <button type="reset" class="btn btn-warning">Cancelar</button>
+                    <button type="reset" class="btn btn-danger" v-if="this.id" @click="$router.push('/editLibro/' + this.id)">Reset</button>
+                    <button type="reset" class="btn btn-danger" v-else >Reset</button>
+                    <button type="reset" class="btn btn-warning" @click="$router.push('/libros')">Cancelar</button>
                 </fieldset>
             </Form>
         </div>
