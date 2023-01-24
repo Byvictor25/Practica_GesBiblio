@@ -115,10 +115,10 @@ export const useDataStore = defineStore('data', {
   },
   getters: {
     getAutorById: (state) =>  (id) => {
-      return state.autores.find((autor) => autor.id == id)
+      return state.autores.find((autor) => autor.id == id) || {}
     },
     getTemaById: (state) =>  (id) => {
-      return state.temas.find((tema) => tema.id == id)
+      return state.temas.find((tema) => tema.id == id) || {}
     },
   }
 })
